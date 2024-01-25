@@ -1,23 +1,8 @@
-Installed node.js 
+d Installed node.js 
 installed npm
 installed node
 installed tailwind
 
 installed react
 
-
-<a href="https://13.231.39.214/" class="block lg:inline-block lg:mt-0 text-teal-200 nav-link">
-        Homepage
-        </a>
-        <a href="https://13.231.39.214/nicolaskojima/" class="block lg:inline-block lg:mt-0 text-teal-200 nav-link">
-        Website
-        </a>
-        <a href="https://13.231.39.214/PMS1/public/login" class="block lg:inline-block lg:mt-0 text-teal-200 nav-link">
-        PMS Project
-        </a>
-        <a href="https://github.com/NicolasKojima" class="block lg:inline-block lg:mt-0 text-teal-200 nav-link">
-        Github
-        </a>
-        <a href="#responsive-header" class="block lg:inline-block lg:mt-0 text-teal-200 nav-link">
-        Contact
-        </a>
+removed ReactDOM.render(<ExampleComponent />, document.getElementById('react-app')); from app.js to make it run on windows
