@@ -61,7 +61,7 @@
                             @foreach ($blogcontents->reverse() as $blogcontent)
                                 @if ($blogcontent->category == 'project')
                                     <article>
-                                        <div class="text-gray-700 post-b">
+                                        <div class="text-gray-700 post-b post-background">
                                             <div class="blog-post-class1">
                                                 <img src="{{ asset('storage/' . $blogcontent->image) }}" alt="IMAGE" class="blogpost-picture">
                                             </div>
@@ -71,7 +71,7 @@
                                                     <div class="description-div1">
                                                         <h2 class="text-2xl font-bold">{{ $blogcontent->title }}</h2>
                                                         <p class="text-sm text-gray-500">
-                                                            By {{ $blogcontent->author }} | {{ $blogcontent->created_at->format('M d, Y') }}
+                                                            By Nicolas | {{ $blogcontent->created_at->format('M d, Y') }}
                                                         </p>
                                                     </div>    
                                                     <div class="description-div2">

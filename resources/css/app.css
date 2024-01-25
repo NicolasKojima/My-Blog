@@ -37,3 +37,9 @@
     align-items: center; /* Center vertically */
     justify-content: center; /* Center horizontally */
 }
+
+.post-background {
+    padding: 20px;
+    background-color: #EEF5FF;
+    border-radius: 20px
+}

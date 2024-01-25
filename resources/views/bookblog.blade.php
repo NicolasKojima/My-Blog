@@ -62,7 +62,7 @@
                             @foreach ($blogcontents->reverse() as $blogcontent)
                                 @if ($blogcontent->category == 'book')
                                     <article>
-                                        <div class="text-gray-700 post-b">
+                                        <div class="text-gray-700 post-b post-background">
                                             <div class="blog-post-class1">
                                                 <img src="{{ asset('storage/' . $blogcontent->image) }}" alt="IMAGE" class="blogpost-picture">
                                             </div>
