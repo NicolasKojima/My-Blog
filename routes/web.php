@@ -1,33 +1,28 @@
 <?php
 
+use App\Http\Controllers\BlogcontentController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogpostController;
-
-
-
-Route::get('/', function () {
-    return view('bloghome');
-});
 
 Route::get('/bookblog', function () {
-    return view('bookblog');
+    $blogcontents = \App\Models\Blogcontent::all();
+    return view('bookblog', compact('blogcontents'));
 });
 
 Route::get('/projectsblog', function () {
-    return view('projectsblog');
+    $blogcontents = \App\Models\Blogcontent::all();
+    return view('projectsblog', compact('blogcontents'));
 });
 
 Route::get('/studiesblog', function () {
-    return view('studiesblog');
+    $blogcontents = \App\Models\Blogcontent::all();
+    return view('studiesblog', compact('blogcontents'));
 });
 
 Route::get('/bloghome', function () {
-    return view('bloghome');
+    $blogcontents = \App\Models\Blogcontent::all();
+    return view('bloghome', compact('blogcontents'));
 });
 
-// Creating new post controller
-Route::get('/blogposts/create', [BlogpostController::class, 'create']);
-Route::post('/blogposts', [BlogpostController::class, 'store']);
-
-// Displaying Post Contents
-Route::get('/bookblog', [BlogpostController::class, 'index'])->name('bookblog');
+Route::get('/blogcontents/create', [BlogcontentController::class, 'create']);
+Route::post('/blogcontents', [BlogcontentController::class, 'store'])->name('blogcontents.store');
+Route::get('/blogcontents', [BlogcontentController::class, 'index']);

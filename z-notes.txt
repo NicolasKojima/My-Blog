@@ -6,3 +6,7 @@ installed tailwind
 installed react
 
 removed ReactDOM.render(<ExampleComponent />, document.getElementById('react-app')); from app.js to make it run on windows
+
+Laravel Security Package
+Laravel Translation
+Laravel Scout

@@ -5,6 +5,35 @@
 .background{
     position:absolute;
     background-color:  #e3e3e3;
-    height: 100vh;
+    height: auto;
     width: 100vw;
+}
+
+.blog-post-class2 {
+    display: grid;
+    grid-template-columns: 85% 15%;
+}
+
+.blogpost-picture {
+    width: 25vw;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.blog-description{
+    font-size: small;
+    max-height: 10vw; 
+    overflow: auto;
+    word-wrap: break-word;
+    margin-top: 1vw;
+    margin-right: 2vw;
+}
+
+.category-menu {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    height: 30px;
+    margin-bottom:30px !important;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
 }

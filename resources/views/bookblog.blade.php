@@ -34,13 +34,10 @@
             .header{
                 font-size: 40px;
                 margin-left: 2vw;
+                margin-bottom: 100px;
             }
 
-            .category-menu {
-                display: grid;
-                grid-template-columns: 10% 90%;
-                height: 30px;
-            }
+            
         </style>
 
         @vite('resources/css/app.css')
@@ -62,41 +59,86 @@
                         <div class="flex-1 space-y-6">
                             <p class="header"> Books Reviews <p>
 
+                            @foreach ($blogcontents->reverse() as $blogcontent)
+                                @if ($blogcontent->category == 'book')
+                                    <article>
+                                        <div class="text-gray-700 post-b">
+                                            <div class="blog-post-class1">
+                                                <img src="{{ asset('storage/' . $blogcontent->image) }}" alt="IMAGE" class="blogpost-picture">
+                                            </div>
+                                            <div></div>
+                                            <div>
+                                                <div class="blog-post-class2">
+                                                    <div class="description-div1">
+                                                        <h2 class="text-2xl font-bold">{{ $blogcontent->title }}</h2>
+                                                        <p class="text-sm text-gray-500">
+                                                            By {{ $blogcontent->author }} | {{ $blogcontent->created_at->format('M d, Y') }}
+                                                        </p>
+                                                    </div>    
+                                                    <div class="description-div2">
+                                                        {{-- Star Rating --}}
+                                                        @php
+                                                            $filledStars = 0;
+                                                            switch ($blogcontent->rating) {
+                                                                case 1:
+                                                                case 2:
+                                                                    $filledStars = 1;
+                                                                    break;
+                                                                case 3:
+                                                                case 4:
+                                                                    $filledStars = 2;
+                                                                    break;
+                                                                case 5:
+                                                                case 6:
+                                                                    $filledStars = 3;
+                                                                    break;
+                                                                case 7:
+                                                                case 8:
+                                                                    $filledStars = 4;
+                                                                    break;
+                                                                case 9:
+                                                                case 10:
+                                                                    $filledStars = 5;
+                                                                    break;
+                                                            }
+                                                        @endphp
 
-                            <@foreach ($blogposts as $blogpost)
-                                <article>
-                                    <div class="text-gray-700 post-b">
-                                        <div class="blog-post-class1">
-                                            <img src="{{ asset('storage/' . $blogpost->image_path) }}" alt="IMAGE" width="500" height="600">
+                                                        {{-- Display filled stars --}}
+                                                        @for ($i = 1; $i <= $filledStars; $i++)
+                                                            <span class="star">&#9733;</span>
+                                                        @endfor
+
+                                                        {{-- Display empty stars --}}
+                                                        @for ($i = $filledStars + 1; $i <= 5; $i++)
+                                                            <span class="star">&#9734;</span>
+                                                        @endfor
+                                                    </div>
+                                                </div>
+                                                <p class="blog-description">
+                                                    {{ $blogcontent->description }}
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div></div>
-                                        <div class="blog-post-class2">
-                                            <h2 class="text-2xl font-bold">{{ $blogpost->title }}</h2>
-                                            <p class="text-sm text-gray-500">
-                                                By {{ $blogpost->author }} | {{ $blogpost->created_at->format('M d, Y') }}
-                                            </p>
-                                            {{ $blogpost->description }}
-                                        </div>
-                                    </div>
-                                </article>
+                                    </article>
+                                @endif
                             @endforeach
 
-                            
+
                         </div>
                         <aside class="w-full md:w-80 space-y-4">
                             <div>
                                 <h3 class="font-semibold" style="margin-bottom: 30px; font-size: 30px;"">Categories</h3>
                                 <ul class="space-y-1 mt-2">
                                     <li class="category-menu">
-                                        <img src="{{ asset('storage/icons/home-icon.png') }}" alt="IMAGE" style="width: 20px; height:20px;">
-                                        <a class="hover:underline" href="bookblog">Blog Home</a>
+                                        <img src="{{ asset('storage/icons/home-icon.png') }}" alt="IMAGE" style="width: 40px; height:40px;">
+                                        <a class="hover:underline" href="bloghome">Blog Home</a>
                                     </li>
                                     <li class="category-menu">
-                                        <img src="{{ asset('storage/icons/robot-icon.png') }}" alt="IMAGE" style="width: 20px; height:20px;">
+                                        <img src="{{ asset('storage/icons/robot-icon.png') }}" alt="IMAGE" style="width: 40px; height:40px;">
                                         <a class="hover:underline" href="projectsblog">Projects Blog</a>
                                     </li>
                                     <li class="category-menu">
-                                        <img src="{{ asset('storage/icons/book-icon.png') }}" alt="IMAGE" style="width: 20px; height:20px;">
+                                        <img src="{{ asset('storage/icons/book-icon.png') }}" alt="IMAGE" style="width: 40px; height:40px;">
                                         <a class="hover:underline" href="studiesblog">Studies Blog</a>
                                     </li>
                                 </ul>
@@ -130,4 +172,3 @@
     </body>
 </html>
 
-I wrote this code <img src="example-image-2.jpg" alt="IMAGE" width="500" height="600"> in a blade file located in /resources/views/welcome.blade.php and i am trying to call the image from /storage/app/public/image/ how do i do this 
