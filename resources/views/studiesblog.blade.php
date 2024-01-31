@@ -136,7 +136,7 @@
                                     </li>
                                     <li class="category-menu">
                                         <img src="{{ asset('storage/icons/home-icon.png') }}" alt="IMAGE" style="width: 40px; height:40px;">
-                                        <a class="hover:underline" href="studiesblog">Blog Home</a>
+                                        <a class="hover:underline" href="bloghome">Blog Home</a>
                                     </li>
                                 </ul>
                             </div>
