@@ -144,6 +144,10 @@
                                         <img src="{{ asset('storage/icons/studies-icon.png') }}" alt="IMAGE" style="width: 40px; height:40px;">
                                         <a class="hover:underline" href="studiesblog">Studies Blog</a>
                                     </li>
+                                    <li class="category-menu" style="margin-top: 50px;">
+                                        <img src="{{ asset('storage/icons/create.png') }}" alt="IMAGE" style="width: 30px; height:30px; margin-left:10px;">
+                                        <a class="hover:underline" href="blogcontents/create">Create Blog Post</a>
+                                    </li>
                                 </ul>
                             </div>
                         </aside>
